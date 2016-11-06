@@ -135,4 +135,54 @@ analyze("Uganda")
 #modify the analyze function to generate a plot with "year" on x-axis and :lifeExp" on
 #the y axis
 
-gapminder_67_07 <-subset (dat, dat$year) == 1967 : == 2007)
+best_practices
+best_practice_fun <- function(some_argument) {
+  print (some_argument[1])
+  print (some_argument[2])
+  print (some_argument[3])
+  print (some_argument[4])
+  print (some_argument[5])
+  print (some_argument[6])
+}
+
+best_practice_fun(best_practices)
+
+for (w in best_practices) {
+  print (w)
+}
+
+best_practices_fun2 <-function (some_argument) {
+  for (w in best_practices)
+    print (w)
+}
+
+#Generate a fine that contains years "1952" and "1997" and name it as gapminder_52_97
+#and another file that contains years "1966" and "2007" and name it as gapminder_66_07
+#hint:use subset with & 
+
+gapminder_52_97 <- subset(dat, dat$year == 1952 |  dat$year == 1997)
+head(gapminder_52_97)
+
+gapminder_66_07 <- subset(dat, dat$year == 1966 |  dat$year == 2007)
+head(gapminder_66_07)
+#this (below) extracts the data for the time range from the large data files, into 2 smaller sheets
+write.csv(file = "data/year52.csv", gapminder_52_97, row.names = TRUE)
+write.csv(file = "data/year566.csv", gapminder_66_07, row.names = TRUE)
+list.files(path="data", pattern = ".csv", full.names = TRUE)
+
+analyze_data <-function(file, new){
+  fileout <-read.csv(files, header = TRUE)
+  country_name <-subset (file_out, file_out$country == new)
+  out2 = mean(country_name$lifeExp)
+  print(out2)
+}
+
+analyze_all <-function(pattern, new){
+  filenames <- list.files(path = "data", pattern = pattern, full.names = TRUE)
+  for (f in filenames){
+    analyze_data(f,new)
+  }
+}
+
+analyze_all(".csv", "Uganda")
+  
